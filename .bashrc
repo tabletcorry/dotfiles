@@ -134,7 +134,7 @@ export EDITOR=vim
 export SVN_EDITOR=$EDITOR
 export PAGER=less
 
-export MAVEN_OPTS='-Dmaven.artifact.threads=4 -Xmx756m'
+export MAVEN_OPTS="-Dmaven.artifact.threads=$core_count -Xmx756m"
 
 # source some work stuff
 source ~/.bashrc.rfi
