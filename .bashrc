@@ -38,9 +38,9 @@ else
 fi
 
 # Yep, this is a two line prompt (though it may not be obvious). Format follows:
-# Path                                                    (git info) Time
+# Path                                                  ($?) (git info) Time
 # Prompt-char
-export PS1='$(printf "%${COLUMNS}s" "$(gitb_time 2>/dev/null)")\r\u@\h:\W \n\$ '
+export PS1='$(printf "%${COLUMNS}s" "($?)$(gitb_time 2>/dev/null)")\r\u@\h:\W \n\$ '
 
 # I like bash 4 features
 if [ $BASH_VERSINFO -eq 4 ]; then
