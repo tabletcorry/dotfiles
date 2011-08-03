@@ -139,9 +139,5 @@ export MAVEN_OPTS='-Dmaven.artifact.threads=4 -Xmx756m'
 # source some work stuff
 source ~/.bashrc.rfi
 
-git-patch-single() {
-  git diff $1^..$1
-}
-
 # Bring the Homebrew binaries in
 export PATH="/usr/local/bin:$PATH"
