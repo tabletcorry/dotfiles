@@ -79,6 +79,7 @@ cmap W w
 
 au BufRead,BufNewFile *.include setfiletype xml
 au BufRead,BufNewFile *.build   setfiletype xml
+au BufRead,BufNewFile *.md,*.mkdn,*.markdown   set filetype=markdown
 
 set viminfo='20,\"500	" keep a .viminfo file
 
