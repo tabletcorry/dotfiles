@@ -37,10 +37,16 @@ else
   }
 fi
 
+function virtualenv_name {
+  if [ -n "$VIRTUAL_ENV" ]; then
+    echo " ($(basename $VIRTUAL_ENV))"
+  fi
+}
+
 # Yep, this is a two line prompt (though it may not be obvious). Format follows:
 # Path                                                  ($?) (git info) Time
 # Prompt-char
-export PS1='$(printf "%${COLUMNS}s" "($?)$(gitb_time 2>/dev/null)")\r\u@\h:\W \n\$ '
+export PS1='$(printf "%${COLUMNS}s" "($?)$(virtualenv_name)$(gitb_time 2>/dev/null)")\r\u@\h:\W \n\$ '
 
 # I like bash 4 features
 if [ $BASH_VERSINFO -eq 4 ]; then
@@ -140,4 +146,27 @@ export MAVEN_OPTS="-Dmaven.artifact.threads=$core_count -Xmx756m"
 source ~/.bashrc.rfi
 
 # Bring the Homebrew binaries in
-export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
+
+# pip bash completion start
+_pip_completion()
+{
+    COMPREPLY=( $( COMP_WORDS="${COMP_WORDS[*]}" \
+                   COMP_CWORD=$COMP_CWORD \
+                   PIP_AUTO_COMPLETE=1 $1 ) )
+}
+complete -o default -F _pip_completion pip
+# pip bash completion end
+
+# virtualenv stuff
+export PIP_REQUIRE_VIRTUALENV=true
+export VIRTUAL_ENV_DISABLE_PROMPT=true
+
+# virtualenvwwrapper stuff
+export WORKON_HOME=$HOME/.virtualenvs
+if [ ! -e "$WORKON_HOME" ]; then
+  mkdir -p $WORKON_HOME
+fi
+source /usr/local/bin/virtualenvwrapper.sh
+
+export PIP_VIRTUALENV_BASE=$WORKON_HOME

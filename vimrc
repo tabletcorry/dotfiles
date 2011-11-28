@@ -75,7 +75,6 @@ if has('gui_running')
 endif
 
 cmap Q q
-cmap W w
 
 au BufRead,BufNewFile *.include setfiletype xml
 au BufRead,BufNewFile *.build   setfiletype xml
@@ -116,3 +115,7 @@ set foldenable
 set foldmethod=syntax
 set foldlevel=999
 set clipboard=unnamed
+
+if &diff
+  colorscheme darkdevel
+endif
