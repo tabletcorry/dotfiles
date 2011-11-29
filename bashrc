@@ -171,3 +171,13 @@ source /usr/local/bin/virtualenvwrapper.sh
 export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
+
+has_virtualenv() {
+  if [ -e .venv ]; then
+    workon `cat .venv`
+  fi
+}
+venv_cd () {
+  cd "$@" && has_virtualenv
+}
+alias cd="venv_cd"
