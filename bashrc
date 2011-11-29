@@ -168,5 +168,6 @@ if [ ! -e "$WORKON_HOME" ]; then
   mkdir -p $WORKON_HOME
 fi
 source /usr/local/bin/virtualenvwrapper.sh
+export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
