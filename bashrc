@@ -44,7 +44,7 @@ function virtualenv_name {
 }
 
 # Yep, this is a two line prompt (though it may not be obvious). Format follows:
-# Path                                                  ($?) (git info) Time
+# Path                                         ($?) (virtualenv) (git info) Time
 # Prompt-char
 export PS1='$(printf "%${COLUMNS}s" "($?)$(virtualenv_name)$(gitb_time 2>/dev/null)")\r\u@\h:\W \n\$ '
 
@@ -100,6 +100,7 @@ esac
 # Bunches of aliases for typos and shortcuts
 
 alias l="ls $ls_opts"
+alias ll="ls -l $ls_opts"
 alias ls="ls $ls_opts"
 alias make="make -sj$((core_count+1))"
 alias grep="grep --color=auto"
