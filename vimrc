@@ -119,3 +119,9 @@ set clipboard=unnamed
 if &diff
   colorscheme darkdevel
 endif
+
+if exists('+colorcolumn')
+  set colorcolumn=80
+  hi ColorColumn ctermbg=darkgrey guibg=darkgrey
+endif
+
