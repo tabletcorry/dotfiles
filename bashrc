@@ -64,10 +64,6 @@ shopt -s cmdhist
 shopt -s extglob
 shopt -s histappend
 
-if [ -f ~/.profile ]; then
-	. ~/.profile
-fi
-
 case $OSTYPE in
 	darwin* ) # Alias for BSD type tools
     ON_MAC=true
