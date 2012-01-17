@@ -81,6 +81,12 @@ case $OSTYPE in
 
     # BSD ls is different... of course
 		ls_opts="-GF"
+    if [ -e "/usr/local/bin/gls" ]; then
+		  ls_opts="--color=auto -F"
+      ls_bin="/usr/local/bin/gls"
+    else
+      ls_bin="ls"
+    fi
 		;;
 	linux* ) # Alias for GNU style tools
     # Some OS's do not give sbin to normal users (CENTOS!)
@@ -89,15 +95,16 @@ case $OSTYPE in
 		core_count=`grep siblings /proc/cpuinfo | sort -u | \
 			sed 's/[^0-9]\+\([0-9]\+\)/\1/'`
 		ls_opts="--color=auto -F"
+    ls_bin="ls"
 		;;
 	* ) echo *** Bash Profile unable to recognize OS type: $OSTYPE ***;;
 esac
 
 # Bunches of aliases for typos and shortcuts
 
-alias l="ls $ls_opts"
-alias ll="ls -l $ls_opts"
-alias ls="ls $ls_opts"
+alias l="$ls_bin $ls_opts"
+alias ll="$ls_bin -l $ls_opts"
+alias ls="$ls_bin $ls_opts"
 alias make="make -sj$((core_count+1))"
 alias grep="grep --color=auto"
 
@@ -146,6 +153,12 @@ fi
 
 # Bring the Homebrew binaries in
 export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
+export PATH="/usr/local/share/python:$PATH"
+
+if [ -f "$HOME/.pythonrc.py" ]
+then
+  export PYTHONSTARTUP=$HOME/.pythonrc.py
+fi
 
 # pip bash completion start
 _pip_completion()
@@ -173,10 +186,14 @@ export PIP_VIRTUALENV_BASE=$WORKON_HOME
 
 has_virtualenv() {
   if [ -e .venv ]; then
-    workon `cat .venv`
+    if [ -z "$VIRTUAL_ENV" ]; then
+      workon `cat .venv`
+    fi
   fi
 }
 venv_cd () {
   cd "$@" && has_virtualenv
 }
 alias cd="venv_cd"
+
+export HOMEBREW_BUILD_FROM_SOURCE=true
