@@ -146,9 +146,9 @@ export PAGER=less
 
 export MAVEN_OPTS="-Dmaven.artifact.threads=$core_count -Xmx756m"
 
-if [ -e "~/.bashrc.rfi" ]; then
+if [ -f "$HOME/.bashrc.rfi" ]; then
   # source some work stuff
-  source ~/.bashrc.rfi
+  source $HOME/.bashrc.rfi
 fi
 
 # Bring the Homebrew binaries in
