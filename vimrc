@@ -125,6 +125,7 @@ let mapleader = ","
 let g:pep8_map='<leader>8'
 
 call pathogen#infect()
+call pathogen#helptags()
 
 
 " Add the virtualenv's site-packages to vim path
@@ -142,3 +143,15 @@ EOF
 au FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
 set completeopt=menuone,longest,preview
+
+" Execute the tests
+nmap <silent><Leader>tf <Esc>:Pytest file<CR>
+nmap <silent><Leader>tc <Esc>:Pytest class<CR>
+nmap <silent><Leader>tm <Esc>:Pytest method<CR>
+" cycle through test errors
+nmap <silent><Leader>tn <Esc>:Pytest next<CR>
+nmap <silent><Leader>tp <Esc>:Pytest previous<CR>
+nmap <silent><Leader>te <Esc>:Pytest error<CR>
+
+map <leader>j :RopeGotoDefinition<CR>
+map <leader>r :RopeRename<CR>
