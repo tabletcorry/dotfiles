@@ -4,10 +4,13 @@ set ai			" Auto-indent on
 set history=50		" 50 lines of history
 set ruler		" Always show cursor position
 "set et			" Expand Tab
-set sw=2		" Shift width
+set sw=4		" Shift width
 set smarttab            " Deletes as much as it tabs
-set tabstop=2
+set tabstop=4
 set expandtab
+
+set modelines=0
+set nomodeline
 
 set viminfo='20,\"500
 
@@ -155,3 +158,15 @@ nmap <silent><Leader>te <Esc>:Pytest error<CR>
 
 map <leader>j :RopeGotoDefinition<CR>
 map <leader>r :RopeRename<CR>
+
+set ignorecase 
+set smartcase
+set scrolloff=3
+
+set listchars=tab:>-,trail:·,eol:$
+nmap <silent> <leader>s :set nolist!<CR>
+
+set shortmess=atI
+
+source ~/.vimrc.rfi
+source ~/.vimrc.private
