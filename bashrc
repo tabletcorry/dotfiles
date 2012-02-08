@@ -197,3 +197,9 @@ venv_cd () {
 alias cd="venv_cd"
 
 export HOMEBREW_BUILD_FROM_SOURCE=true
+
+# This saves bunches of time on pip downloads
+export PIP_DOWNLOAD_CACHE=/usr/local/var/tmp/pip
+if [ ! -e "$WORKON_HOME" ]; then
+    mkdir -p $PIP_DOWNLOAD_CACHE
+fi
