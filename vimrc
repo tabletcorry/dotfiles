@@ -158,6 +158,9 @@ map <leader>r :RopeRename<CR>
 set listchars=tab:>-,trail:·,eol:$
 nmap <silent> <leader>s :set nolist!<CR>
 
+" Helps Command-T to ignore files
+set wildignore+=*.o,*.obj,.git,*.pyc,*.pyo,__pycache__
+
 " Put some of the local only commands in untracked files
 source ~/.vimrc.rfi
 source ~/.vimrc.private
