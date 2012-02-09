@@ -184,18 +184,21 @@ export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
 
-has_virtualenv() {
-  if [ -e .venv ]; then
-    if [ -z "$VIRTUAL_ENV" ]; then
-      workon `cat .venv`
-    fi
-  fi
-}
-venv_cd () {
-  cd "$@" && has_virtualenv
-}
-alias cd="venv_cd"
+# This is clever, but I am not sure if its worth messing with cd
+#
+#has_virtualenv() {
+#  if [ -e .venv ]; then
+#    if [ -z "$VIRTUAL_ENV" ]; then
+#      workon `cat .venv`
+#    fi
+#  fi
+#}
+#venv_cd () {
+#  cd "$@" && has_virtualenv
+#}
+#alias cd="venv_cd"
 
+# I do not really trust bottles, and I am usually patient
 export HOMEBREW_BUILD_FROM_SOURCE=true
 
 # Not sure if this does anything at all, but seems liek a good idea
