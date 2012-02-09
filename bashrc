@@ -131,6 +131,19 @@ alias dc='cd'
 alias cd..='cd ..'
 alias dc..='cd ..'
 
+# Sometimes I just type too fast
+alias c='is_c_cd'
+function is_c_cd {
+    if [ "$1" == "d.." ]
+    then
+        shift
+        cd $@
+    else
+        # quotes block alias expansion, otherwise segfault :)
+        'c' $@
+    fi
+}
+
 # One can never have enough history
 export HISTCONTROL=ignoreboth
 export HISTFILESIZE=100000000
