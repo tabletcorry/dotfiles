@@ -126,6 +126,9 @@ alias cit=git
 alias pint=ping
 alias pign=ping
 
+# Sensitive headphones make default volumes painful
+alias mplayer="mplayer -volume 10"
+alias aplayer="mplayer -novideo -volume 10"
 
 alias dc='cd'
 alias cd..='cd ..'
