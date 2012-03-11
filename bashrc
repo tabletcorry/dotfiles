@@ -126,6 +126,8 @@ alias cit=git
 alias pint=ping
 alias pign=ping
 
+alias ssh-fingerprints="ls ~/.ssh/*.pub | xargs -L 1 ssh-keygen -l -f"
+
 # Sensitive headphones make default volumes painful
 alias mplayer="mplayer -volume 10"
 alias aplayer="mplayer -novideo -volume 10"
@@ -140,7 +142,7 @@ function is_c_cd {
     if [ "$1" == "d.." ]
     then
         shift
-        cd $@
+        cd .. $@
     else
         # quotes block alias expansion, otherwise segfault :)
         'c' $@
@@ -225,3 +227,7 @@ export PIP_DOWNLOAD_CACHE=/usr/local/var/tmp/pip
 if [ ! -e "$WORKON_HOME" ]; then
     mkdir -p $PIP_DOWNLOAD_CACHE
 fi
+
+function activate-rbenv {
+    eval "$(rbenv init -)"
+}
