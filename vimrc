@@ -153,6 +153,7 @@ nmap <silent><Leader>te <Esc>:Pytest error<CR>
 " Set some rope shortcuts
 map <leader>j :RopeGotoDefinition<CR>
 map <leader>r :RopeRename<CR>
+map <leader>i :RopeOrganizeImports<CR>
 
 " Supposed to show trailing whitespace, does not yet work
 set listchars=tab:>-,trail:·,eol:$

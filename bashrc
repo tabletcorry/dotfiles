@@ -197,7 +197,10 @@ export WORKON_HOME=$HOME/.virtualenvs
 if [ ! -e "$WORKON_HOME" ]; then
   mkdir -p $WORKON_HOME
 fi
-source /usr/local/bin/virtualenvwrapper.sh
+
+if [ -e "/usr/local/bin/virtualenvwrapper.sh" ]; then
+    source /usr/local/bin/virtualenvwrapper.sh
+fi
 export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
@@ -224,7 +227,7 @@ export PIP_USE_MIRRORS=true
 
 # This saves bunches of time on pip downloads
 export PIP_DOWNLOAD_CACHE=/usr/local/var/tmp/pip
-if [ ! -e "$WORKON_HOME" ]; then
+if [ ! -e "$PIP_DOWNLOAD_CACHE" ]; then
     mkdir -p $PIP_DOWNLOAD_CACHE
 fi
 
