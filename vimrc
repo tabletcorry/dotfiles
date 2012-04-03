@@ -163,5 +163,9 @@ nmap <silent> <leader>s :set nolist!<CR>
 set wildignore+=*.o,*.obj,.git,*.pyc,*.pyo,__pycache__
 
 " Put some of the local only commands in untracked files
-source ~/.vimrc.rfi
-source ~/.vimrc.private
+if filereadable("~/.vimrc.rfi")
+    source ~/.vimrc.rfi
+endif
+if filereadable("~/.vimrc.private")
+    source ~/.vimrc.private
+endif
