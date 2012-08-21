@@ -10,9 +10,9 @@
 [submodule "vim/bundle/pep8"]
 	path = vim/bundle/pep8
 	url = https://github.com/vim-scripts/pep8.git
-#[submodule "vim/bundle/rope-vim"]
-#	path = vim/bundle/rope-vim
-#	url = https://github.com/sontek/rope-vim.git
+[submodule "vim/bundle/rope-vim"]
+	path = vim/bundle/rope-vim
+	url = https://github.com/sontek/rope-vim.git
 #[submodule "vim/bundle/snipmate.vim"]
 #	path = vim/bundle/snipmate.vim
 #	url = https://github.com/msanders/snipmate.vim.git

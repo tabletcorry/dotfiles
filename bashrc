@@ -1,10 +1,15 @@
 ###
 # Generally created by Corry Haines (tabletcorry@gmail.com)
 ###
+# vim: ts=2:sw=2:expandtab
 
 if [ -f /usr/local/etc/bash_completion ]; then
   # Probably using Homebrew
   . /usr/local/etc/bash_completion
+  if [ -f /usr/local/share/git-core/contrib/completion/git-prompt.sh ]; then
+    # New git (1.7.12?) appears to have moved these functions
+    . /usr/local/share/git-core/contrib/completion/git-prompt.sh
+  fi
 elif [ -f /opt/local/etc/bash_completion ]; then
   # Probably using Macports
 	. /opt/local/etc/bash_completion
@@ -234,3 +239,5 @@ fi
 function activate-rbenv {
     eval "$(rbenv init -)"
 }
+
+export PATH=$HOME/github/haxby/bin:$PATH
