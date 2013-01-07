@@ -203,8 +203,8 @@ if [ ! -e "$WORKON_HOME" ]; then
   mkdir -p $WORKON_HOME
 fi
 
-if [ -e "/usr/local/bin/virtualenvwrapper.sh" ]; then
-    source /usr/local/bin/virtualenvwrapper.sh
+if [ -e "/usr/local/share/python/virtualenvwrapper.sh" ]; then
+    source /usr/local/share/python/virtualenvwrapper.sh
 fi
 export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 
@@ -240,4 +240,9 @@ function activate-rbenv {
     eval "$(rbenv init -)"
 }
 
+function activate-rvm {
+    source ~/.rvm/scripts/rvm
+}
+
 export PATH=$HOME/github/haxby/bin:$PATH
+export GIT_MERGE_AUTOEDIT=no
