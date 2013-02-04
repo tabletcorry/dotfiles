@@ -77,7 +77,7 @@ case $OSTYPE in
     stty status ^T
 
     # gitk looks terrible on mac, use wish to prettify it
-    alias gitk="/usr/bin/wish $(which gitk)"
+    alias gitk="/usr/bin/wish $(which gitk) 2>/dev/null"
 
     export ARCHFLAGS='-arch x86_64'
 
