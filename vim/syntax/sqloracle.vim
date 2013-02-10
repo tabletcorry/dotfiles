@@ -46,7 +46,8 @@ syn keyword sqlStatement truncate update
 syn keyword sqlType	boolean char character date float integer long
 syn keyword sqlType	mlslabel number raw rowid varchar varchar2 varray
 " Postgres
-syn keyword sqlType bigserial serial bigint text timestamp int
+syn keyword sqlType bigserial serial bigint text timestamp int hstore
+syn keyword sqlStatement usage tables sequences
 
 " Strings and characters:
 syn region sqlString		start=+"+  skip=+\\\\\|\\"+  end=+"+

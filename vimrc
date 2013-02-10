@@ -118,16 +118,12 @@ let mapleader = ","
 " Set shortcut for pep8 report
 let g:pep8_map='<leader>8'
 
-" Activate Pathogen
-call pathogen#infect()
-call pathogen#helptags()
-
-
 " Add the virtualenv's site-packages to vim path
 py << EOF
 import os.path
 import sys
 import vim
+
 if 'VIRTUAL_ENV' in os.environ:
     project_base_dir = os.environ['VIRTUAL_ENV']
     sys.path.insert(0, project_base_dir)
@@ -135,10 +131,15 @@ if 'VIRTUAL_ENV' in os.environ:
     execfile(activate_this, dict(__file__=activate_this))
 EOF
 
+" Activate Pathogen
+call pathogen#infect()
+call pathogen#helptags()
+
+
 " Enable python 'supertab' completion
-au FileType python set omnifunc=pythoncomplete#Complete
-let g:SuperTabDefaultCompletionType = "context"
-set completeopt=menuone,longest,preview
+"au FileType python set omnifunc=pythoncomplete#Complete
+"let g:SuperTabDefaultCompletionType = "context"
+"set completeopt=menuone,longest,preview
 
 " Set shortcuts for py.test
 "   Execute the tests
@@ -161,3 +162,11 @@ set wildignore+=*.o,*.obj,.git,*.pyc,*.pyo,__pycache__
 source ~/.vimrc.rfi
 source ~/.vimrc.private
 
+" On by default, turn it off for html
+let g:syntastic_mode_map = { 'mode': 'active',
+   \ 'active_filetypes': [],
+       \ 'passive_filetypes': ['html'] }
+let g:syntastic_python_pylint_exe="/Users/chaines/.virtualenvs/splitcent/bin/pylint"
+let g:syntastic_python_pylint_args="-f parseable -r n -i y -d C0111 -d C0103 -d W0603"
+let g:syntastic_python_checkers=['flake8', 'pylint']
+let g:syntastic_check_on_open=1

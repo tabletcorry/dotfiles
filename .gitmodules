@@ -28,3 +28,9 @@
 #[submodule "vim/bundle/pytest.vim"]
 #	path = vim/bundle/pytest.vim
 #	url = https://github.com/alfredodeza/pytest.vim.git
+[submodule "syntastic"]
+	path = syntastic
+	url = git@github.com:tabletcorry/syntastic.git
+[submodule "vim/bundle/syntastic"]
+	path = vim/bundle/syntastic
+	url = https://github.com/tabletcorry/syntastic.git
