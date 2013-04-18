@@ -159,7 +159,6 @@ nmap <silent> <leader>s :set nolist!<CR>
 set wildignore+=*.o,*.obj,.git,*.pyc,*.pyo,__pycache__
 
 " Put some of the local only commands in untracked files
-source ~/.vimrc.rfi
 source ~/.vimrc.private
 
 " On by default, turn it off for html
