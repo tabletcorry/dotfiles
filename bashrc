@@ -176,7 +176,6 @@ fi
 
 # Bring the Homebrew binaries in
 export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
-export PATH="/usr/local/share/python:$PATH"
 
 if [ -f "$HOME/.pythonrc.py" ]
 then
@@ -203,8 +202,8 @@ if [ ! -e "$WORKON_HOME" ]; then
   mkdir -p $WORKON_HOME
 fi
 
-if [ -e "/usr/local/share/python/virtualenvwrapper.sh" ]; then
-    source /usr/local/share/python/virtualenvwrapper.sh
+if [ -e "/usr/local/bin/virtualenvwrapper.sh" ]; then
+    source /usr/local/bin/virtualenvwrapper.sh
 fi
 export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 
