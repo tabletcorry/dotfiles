@@ -162,10 +162,20 @@ set wildignore+=*.o,*.obj,.git,*.pyc,*.pyo,__pycache__
 source ~/.vimrc.private
 
 " On by default, turn it off for html
-let g:syntastic_mode_map = { 'mode': 'active',
-   \ 'active_filetypes': [],
-       \ 'passive_filetypes': ['html'] }
-let g:syntastic_python_pylint_exe="/Users/chaines/.virtualenvs/splitcent/bin/pylint"
-let g:syntastic_python_pylint_args="-f parseable -r n -i y -d C0111 -d C0103 -d W0603"
-let g:syntastic_python_checkers=['flake8', 'pylint']
-let g:syntastic_check_on_open=1
+"let g:syntastic_mode_map = { 'mode': 'active',
+"   \ 'active_filetypes': [],
+"       \ 'passive_filetypes': ['html'] }
+"let g:syntastic_python_pylint_exe="/Users/corry/.virtualenvs/vim/bin/pylint"
+"let g:syntastic_python_pylint_args="-f parseable -r n -i y -d C0111 -d C0103 -d W0603"
+"let g:syntastic_python_checkers=['flake8', 'pylint']
+"let g:syntastic_check_on_open=1
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_aggregate_errors = 1
