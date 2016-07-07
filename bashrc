@@ -169,10 +169,6 @@ export PAGER=less
 
 export MAVEN_OPTS="-Dmaven.artifact.threads=$core_count -Xmx756m"
 
-if [ -f "$HOME/.bashrc.rfi" ]; then
-  # source some work stuff
-  source $HOME/.bashrc.rfi
-fi
 
 # Bring the Homebrew binaries in
 export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
@@ -245,3 +241,8 @@ function activate-rvm {
 
 export PATH=$HOME/github/haxby/bin:$PATH
 export GIT_MERGE_AUTOEDIT=no
+
+if [ -f "$HOME/.bashrc.private" ]; then
+  # source some work stuff
+  source $HOME/.bashrc.private
+fi
