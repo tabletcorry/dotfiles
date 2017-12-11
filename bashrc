@@ -219,9 +219,6 @@ export PIP_VIRTUALENV_BASE=$WORKON_HOME
 #}
 #alias cd="venv_cd"
 
-# I do not really trust bottles, and I am usually patient
-export HOMEBREW_BUILD_FROM_SOURCE=true
-
 # Not sure if this does anything at all, but seems liek a good idea
 export PIP_USE_MIRRORS=true
 
@@ -241,6 +238,10 @@ function activate-rvm {
 
 export PATH=$HOME/github/haxby/bin:$PATH
 export GIT_MERGE_AUTOEDIT=no
+
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
 
 if [ -f "$HOME/.bashrc.private" ]; then
   # source some work stuff
